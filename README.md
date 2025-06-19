@@ -19,3 +19,6 @@ ragflow是我在实际项目中使用过的比较好用的大模型知识库开�
 ### - HOST: ragflow的host（要以http://或https://开头）
 ### - PORT: ragflow的port
 然后你就可以实现在open-webui中调用ragflow中的agent，并且拥有美观的交互界面了。
+## 与ragflow和open-webui的版本适配历史
+-2025年6月19日，与open-webui 0.6.15和ragflow 0.19.0适配测试通过。
+-2025年4月8日，与open-webui 0.5.20和ragflow 0.17.0适配测试通过。
