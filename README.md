@@ -7,7 +7,7 @@ ragflow是我在实际项目中使用过的比较好用的大模型知识库开�
 ## 关于本项目
 在我所负责的大模型项目中，ragflow的agent很好的处理了基于知识库的问答，但不幸的是，ragflow并没有提供一个很好的对话交互界面，自带的界面仅仅是便于调试，完全无法让用户使用，因此需要将ragflow的agent集成进入一个比较成熟的对话界面软件，经过多种软件对比，我选择了open-webui。因为open-webui提供了一种集成技术[pipelines](https://github.com/open-webui/pipelines)。因此我开发了可以把在ragflow中所开发的agent集成入open-webui的[pipelines](https://github.com/open-webui/pipelines)。因为觉得好用，也想分享给有需的人，完全免费的分享，没有任何版权协议限制，您可以随便使用。仅仅是希望您不吝赐星一枚^_^
 ## 联系我
-如果有好的想法或发现了什么问题，请您一定要告诉我哦。
+如果有好的想法或发现了什么问题，请您一定要告诉我哦，扫码加我微信，如果看不见码，我的微信ID：qiuzhiyushi
 <img src="./wechat.jpg" alt="我的微信：qiuzhiyushi" width="300">
 
 ## 使用方法
