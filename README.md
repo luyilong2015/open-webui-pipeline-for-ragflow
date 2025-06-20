@@ -14,10 +14,10 @@ ragflow是我在实际项目中使用过的比较好用的大模型知识库开�
 - 首先下载open-webui的[pipelines](https://github.com/open-webui/pipelines)项目
 - 启动这个项目后，参考[pipelines](https://github.com/open-webui/pipelines)的README，在open-webui中的配置好pipelines的链接
 - 配置好链接后，将本项目的open-webui-pipeline-for-ragflow.py在open-webui中上传后，配置以下四个参数：
-### - API_KEY: ragflow的apikey
-### - AGENT_ID: ragflow的agentid
-### - HOST: ragflow的host（要以http://或https://开头）
-### - PORT: ragflow的port
+  - API_KEY: ragflow的apikey
+  - AGENT_ID: ragflow的agentid
+  - HOST: ragflow的host（要以http://或https://开头）
+  - PORT: ragflow的port
 然后你就可以实现在open-webui中调用ragflow中的agent，并且拥有美观的交互界面了。
 ## 与ragflow和open-webui的版本适配历史
 - 2025年6月19日，与open-webui 0.6.15和ragflow 0.19.0适配测试通过。
