@@ -1,21 +1,20 @@
 """
 title: RagFlow Pipeline
-author: luyilong2015
-date: 2025-01-28
-version: 1.0
+author: open-webui
+date: 2025-10-30
+version: 1.1
 license: MIT
 description: A pipeline for retrieving relevant information from a knowledge base using the RagFlow's Agent Interface.
-requirements: datasets>=2.6.1, sentence-transformers>=2.2.0
+requirements: ragflow_sdk, datasets>=2.6.1, sentence-transformers>=2.2.0
 """
 #智能客服
 from typing import List, Union, Generator, Iterator, Optional
 from pydantic import BaseModel
 import requests
 import json
-
 #API_KEY: ragflow apikey
 #AGENT_ID: ragflow agentid
-#HOST: ragflow host  start with http:// or https:// 
+#HOST: ragflow host
 #PORT: ragflow port
 class Pipeline:
     class Valves(BaseModel):
@@ -99,19 +98,26 @@ class Pipeline:
         question_response = requests.post(question_url, headers=question_headers,stream=True, json=question_data)
         if question_response.status_code == 200:
             # Process and yield each chunk from the response
-            step=0
             for line in question_response.iter_lines():
-                if line:
+                if line :
                     try:
                         # Remove 'data: ' prefix and parse JSON
-                        json_data = json.loads(line.decode('utf-8')[5:])
+                        #print("line is :",line.decode('utf-8'))
+
+                        json_data_str=line.decode('utf-8')[5:]
+                        if json_data_str=='' or json_data_str=='[DONE]':
+                            continue
+                        json_data = json.loads(json_data_str)
+                        #print("json_data is :",json_data)
                         # Extract and yield only the 'text' field from the nested 'data' object
-                        # pring reference
-                        if 'data' in json_data and json_data['data'] is not True and 'answer' in json_data['data'] and '* is running...' not in json_data['data']['answer'] :
-                            if 'chunks' in json_data['data']['reference']:
+                        # print reference
+                        if 'data' in json_data and json_data['data'] is not True and 'content' in json_data['data'] and '* is running...' not in json_data['data']['content'] :
+                            yield json_data['data']['content']
+                        elif json_data.get('data', {}).get('reference'):
                                 referenceStr="\n\n### references\n\n"
                                 filesList=[]
                                 for chunk in json_data['data']['reference']['chunks']:
+                                    print(f"chunks is :{json_data['data']['reference']['chunks']}")
                                     if chunk['document_id'] not in filesList:
                                         filename = chunk['document_name']
                                         parts = filename.split('.')
@@ -120,14 +126,7 @@ class Pipeline:
                                         referenceStr=referenceStr+f"\n\n - ["+chunk['document_name']+f"]({self.valves.HOST}:{self.valves.PORT}/document/{chunk['document_id']}?ext={ext}&prefix=document)"
                                         filesList.append(chunk['document_id'])
                                 #print(f"chunks is :{len(json_data['data']['reference']['chunks'])}")
-                                #print(f"chunks is :{json_data['data']['reference']['chunks']}")
                                 yield referenceStr
-                            else:
-                                #print(json_data['data'])
-                                yield json_data['data']['answer'][step:]
-                                step=len(json_data['data']['answer'])
-
-
                     except json.JSONDecodeError:
                         print(f"Failed to parse JSON: {line}")
         else:
