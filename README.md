@@ -1,5 +1,6 @@
 # open-webui-pipeline-for-ragflow
 一个好用又好看的大模型ui+rag在大模型问答类项目上简直太香了。open-webui+ragflow简直是绝配，既有ragflow的功能，又有open-webui漂亮强大的交互界面。使用open-webui中的pipeline技术在open-webui中调用ragflow的agent实现基于知识库的智能对话简直太棒了！
+很高兴这个小项目能真正帮助到有需要的人，也特别感谢那些给我发红包请我喝咖啡的人！我这么说，并不是索要红包哦！您仍然可以放心的、毫无心理负担的无偿使用，这里我仅仅只是想感谢一下他们！
 ## 关于[open-webui](https://github.com/open-webui/open-webui)
 open-webui是一个非常好的大模型聊天集成软件，他提供的[pipelines](https://github.com/open-webui/pipelines)的方式，极大便利了集成其它大模型工具API到它的对话中来。
 ## 关于[ragflow](https://github.com/infiniflow/ragflow)
