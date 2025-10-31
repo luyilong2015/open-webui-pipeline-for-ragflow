@@ -3,7 +3,8 @@
 
 :smile:很高兴这个小项目能真正帮助到有需要的人，也特别感谢🙏🙏🙏那些给我发红包:red_envelope:请我喝咖啡:coffee:的人！是你们让我有了意外之喜:smile::smile::smile:。
 
-我这么说，并不是索要红包:red_envelope:哦！您仍然可以放心的、毫无心理负担的无偿使用，这里我仅仅只是想感谢一下他们:heart:。
+我这么说，并不是索要红包哦！您仍然可以放心的、毫无心理负担的无偿使用，这里我仅仅只是想感谢一下他们。
+
 ## 关于[open-webui](https://github.com/open-webui/open-webui)
 open-webui是一个非常好的大模型聊天集成软件，他提供的[pipelines](https://github.com/open-webui/pipelines)的方式，极大便利了集成其它大模型工具API到它的对话中来。
 ## 关于[ragflow](https://github.com/infiniflow/ragflow)
